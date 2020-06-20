@@ -39,10 +39,10 @@
           <li>Buy 10 cookies <button class="btn btn-default"><span class="glyphicon glyphicon-ok"></span> Bought</button></li> -->
           <li ng-repeat="item in parent.ToBuy">
              {{item.name}} {{item.quantity}}
-             <button class="btn btn-default" ng-click="removeItem()"><span></span> Bought</button>
+             <button ng-click="parent.removeItem($index);">Bought</button>
           </li>
         </ul>
-        <div class="emptyMessage">Everything is bought!</div>
+        <div class="emptyMessage" ng-if="parent.checkToBuy()">Everything is bought!</div>
       </div>
     </div>
 
@@ -53,10 +53,10 @@
         <ul>
           <!-- <li>Bought 10 cookies</li> -->
           <li ng-repeat="item in parent.Bought">
-            {{Bought.name}} {{Bought.quantity}}
+            {{item.name}} {{item.quantity}}
          </li>
         </ul>
-        <div class="emptyMessage">Nothing bought yet.</div>
+        <div class="emptyMessage" ng-if="parent.checkBought()">Nothing bought yet.</div>
       </div>
     </div>
   </div>
